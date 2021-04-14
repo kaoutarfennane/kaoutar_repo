@@ -8,12 +8,12 @@ function Person(name,gender,salaire,chargesPers,allocation)
 
     this.assurance = function()
     {
-        return this.salaire*0.07
+        return this.salaire*(7/100)
         //console.log('fct assurance'+this.salaire);
     }
     this.pension = function()
     {
-        return this.salaire*0.05
+        return this.salaire*(5/100)
         //console.log('fct pension'+this.salaire);
     }
     this.Isallocation = function()
@@ -49,8 +49,9 @@ function Person(name,gender,salaire,chargesPers,allocation)
     
     this.salaireNet = function ()
     {
-        return this.salaire -this.assurance -this.pension
-        //console.log('fct salaire net'+this.salaire);
+        //console.log('fct salaire net'+this.salaire+" pension "+this.pension()+"assurance"+this.assurance());
+        return this.salaire -this.assurance() -this.pension()
+       
     }
 }
 
@@ -59,10 +60,11 @@ let Per2 = new Person('Peter','man',4000,1,false);
 let Per3 = new Person('Luc','man',1000,0,true);
 let Per4 = new Person('tania','woman',1500,2,false);
 
-console.log(Per1.salaireNet()); // Nan
-console.log(Per2.salaireNet());// Nan
-console.log(Per3.salaireNet());// Nan
-console.log(Per4.salaireNet());// Nan
+   
+Per1.salaireNet(); 
+console.log(Per2.salaireNet());
+console.log(Per3.salaireNet());
+console.log(Per4.salaireNet());
 
 // Erreur !! 
 
